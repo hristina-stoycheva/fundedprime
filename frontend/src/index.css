@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Work Sans", serif;
+}
+
+code {
+  /*font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;*/
+  font-family: "Work Sans", serif;
+}
+
+body * {
+  font-family: "Work Sans", serif;
+  color: #111111;
+}

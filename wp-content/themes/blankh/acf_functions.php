@@ -1,0 +1,176 @@
+<?php
+add_action( 'acf/include_fields', function() {
+	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
+		return;
+	}
+
+	acf_add_local_field_group( array(
+	'key' => 'group_677d29a987f00',
+	'title' => 'Theme settings fields',
+	'fields' => array(
+		array(
+			'key' => 'field_677d29eef0181',
+			'label' => 'Navigation',
+			'name' => 'navigation',
+			'aria-label' => '',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'block',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_677d29d0f0180',
+					'label' => 'Logo',
+					'name' => 'logo',
+					'aria-label' => '',
+					'type' => 'image',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'return_format' => 'array',
+					'library' => 'all',
+					'min_width' => '',
+					'min_height' => '',
+					'min_size' => '',
+					'max_width' => '',
+					'max_height' => '',
+					'max_size' => '',
+					'mime_types' => '',
+					'allow_in_bindings' => 0,
+					'preview_size' => 'medium',
+				),
+				array(
+					'key' => 'field_677d2a14f0182',
+					'label' => 'Buttons',
+					'name' => 'buttons',
+					'aria-label' => '',
+					'type' => 'repeater',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'layout' => 'table',
+					'pagination' => 0,
+					'min' => 0,
+					'max' => 0,
+					'collapsed' => '',
+					'button_label' => 'Add Row',
+					'rows_per_page' => 20,
+					'sub_fields' => array(
+						array(
+							'key' => 'field_677d2a44f0183',
+							'label' => 'Label',
+							'name' => 'label',
+							'aria-label' => '',
+							'type' => 'text',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'maxlength' => '',
+							'allow_in_bindings' => 0,
+							'placeholder' => '',
+							'prepend' => '',
+							'append' => '',
+							'parent_repeater' => 'field_677d2a14f0182',
+						),
+						array(
+							'key' => 'field_677d2a57f0184',
+							'label' => 'URL',
+							'name' => 'url',
+							'aria-label' => '',
+							'type' => 'text',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'allow_in_bindings' => 0,
+							'placeholder' => '',
+							'parent_repeater' => 'field_677d2a14f0182',
+						),
+					),
+				),
+			),
+		),
+		array(
+			'key' => 'field_677e50607d3cb',
+			'label' => 'Test text field',
+			'name' => 'test_text_field',
+			'aria-label' => '',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'maxlength' => '',
+			'allow_in_bindings' => 0,
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'options_page',
+				'operator' => '==',
+				'value' => 'custom-theme-settings',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+	'show_in_rest' => 1,
+) );
+} );
+
+add_action( 'acf/init', function() {
+	acf_add_options_page( array(
+	'page_title' => 'Theme settings',
+	'menu_slug' => 'custom-theme-settings',
+	'position' => '',
+	'redirect' => false,
+	'menu_icon' => array(
+		'type' => 'dashicons',
+		'value' => 'dashicons-admin-generic',
+	),
+	'icon_url' => 'dashicons-admin-generic',
+) );
+} );
+

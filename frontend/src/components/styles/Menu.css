@@ -1,0 +1,63 @@
+/* Ensure parent items are positioned relative */
+.nav-item {
+  position: relative; /* Required for dropdown positioning */
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Initially hide dropdowns */
+.nav-item .dropdown-menu {
+  display: none;
+  position: absolute; /* Positioned relative to the nav-item */
+  top: 100%; /* Make it appear below the parent item */
+  left: 0; /* Align it to the left of the parent item */
+  z-index: 1000; /* Make sure it appears above other content */
+  opacity: 0;
+  visibility: hidden; /* Hidden initially */
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+}
+
+/* Show dropdown when hovering on parent nav-item */
+.nav-item:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Optional: Add spacing or padding to dropdown items */
+.dropdown-item {
+  padding: 8px 16px;
+  font-size: 1rem;
+}
+
+.nav-link {
+  color: #111111;
+  transition: transform 0.3s ease;
+}
+a.nav-link:before {
+  content: "";
+  width: 100%;
+  left: 0;
+  position: absolute;
+  left: 0;
+  height: 2px;
+  background: #8261db;
+  bottom: 7px;
+  transition: transform 0.3s ease;
+  visibility: hidden;
+}
+.nav-link:hover:before {
+  visibility: visible;
+}
+ul.dropdown-menu {
+  background-color: #f3f5f8;
+  border-radius: 0;
+  border: none;
+}
+ul.dropdown-menu .nav-link:hover:before {
+  visibility: hidden;
+}
+
+ul.dropdown-menu .nav-link:hover {
+  background-color: #F9FAFD;
+}

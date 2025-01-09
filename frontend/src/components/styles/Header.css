@@ -1,0 +1,49 @@
+/* Style for dropdown on hover */
+.nav-item:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transition: opacity 0.3s ease; /* Optional: Add fade effect */
+}
+
+/* Hide dropdown by default */
+.nav-item .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+}
+.funded-btn{
+  font-size: 15px;
+  font-weight: 700;
+  border: 0.8px solid;
+  border-radius: 35px;
+  padding: 13px 25px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  line-height: 1;
+
+}
+.funded-btn:hover{
+  transform: scale(1.1);
+
+}
+.funded-white-btn{
+  color: #111111;
+  border-color: #111111;
+}
+.funded-white-btn:hover{
+  color: #8261db;
+}
+
+.funded-black-btn{
+  background-color: #111111;
+  border-color: #111111;
+  color: #fff;
+}
+.funded-black-btn:hover{
+  color: #8261db;
+}
