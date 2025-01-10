@@ -47,7 +47,8 @@ export const fetchPage = async (slug) => {
 export const fetchPageData = async (slug) => {
   try {
     const response = await axios.get(`${WP_API_URL}/pages?slug=${slug}`);
-     return response.data[0]; // Return the first page that matches the slug
+    console.log('API Response:', response); // Добавете тази линия, за да видите какво връща API-то
+    return response.data[0]; // Return the first page that matches the slug
   } catch (error) {
     console.error('Error fetching page data:', error);
     return null;

@@ -1,43 +1,44 @@
 import React, { useEffect, useState, Suspense } from 'react';
-import { fetchPageData } from '../api'; // Function to fetch page data from WordPress API
+import { useParams } from 'react-router-dom'; // За извличане на параметъра slug
+import { fetchPageData } from '../api'; // Функция за извличане на данни от WordPress API
 
-const Page = ({ slug }) => {
+const Page = () => {
+  const { slug } = useParams(); // Извличаме slug от URL параметрите
   const [page, setPage] = useState(null);
 
-  // Fetch page data when the component mounts
   useEffect(() => {
     const getPageData = async () => {
-      const data = await fetchPageData(slug); // Fetch page data by slug
+      const data = await fetchPageData(slug);
+      console.log('Page data for slug:', slug, data); // Проверете данните в конзолата
       setPage(data);
     };
     getPageData();
-  }, [slug]);
+  }, [slug]); // Ще се изпълни всеки път, когато slug се промени
 
   if (!page) {
-    return <div>Loading...</div>; // Show loading message while the page is being fetched
+    return <div>Loading...</div>; // Показваме "Loading..." докато не заредим данните
   }
 
-  // Dynamically load the template based on the fetched template name
   let TemplateComponent;
   switch (page.template) {
-    case 'homepage.php':
-      TemplateComponent = React.lazy(() => import('../templates/HomeTemplate')); // Corrected path
+    case 'templates/homepage.php':
+      TemplateComponent = React.lazy(() => import('../templates/HomeTemplate'));
       break;
-    case 'about-template.php':
-      TemplateComponent = React.lazy(() => import('../templates/AboutTemplate')); // Corrected path
+    case 'templates/about-template.php':
+      TemplateComponent = React.lazy(() => import('../templates/AboutTemplate'));
       break;
-    case 'contact-template.php':
-      TemplateComponent = React.lazy(() => import('../templates/ContactTemplate')); // Corrected path
+    case 'templates/contact-template.php':
+      TemplateComponent = React.lazy(() => import('../templates/ContactTemplate'));
       break;
     default:
-      TemplateComponent = () => <div>{page.content.rendered}</div>; // Default content if no template matches
+      TemplateComponent = () => <div>{page.content.rendered}</div>;
   }
 
   return (
     <div>
       <h1>{page.title.rendered}</h1>
       <Suspense fallback={<div>Loading template...</div>}>
-        <TemplateComponent /> {/* Render the dynamically imported template */}
+        <TemplateComponent />
       </Suspense>
     </div>
   );

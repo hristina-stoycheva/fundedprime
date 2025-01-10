@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route , useParams} from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js"; // for dropdowns and other JS components
 import Header from "./components/Header";
@@ -10,7 +10,8 @@ import AboutPage from './templates/AboutTemplate'; // Import the AboutPage compo
 
 
 const App = () => {
-  return (
+  const { slug } = useParams(); 
+   return (
     <Router>
       <Header />
       <Routes>
