@@ -59,7 +59,7 @@ export const fetchPage = async (slug) => {
 export const fetchPageData = async (slug) => {
   try {
     const response = await axios.get(`${WP_API_URL}/pages?slug=${slug}`);
-    console.log('API Response:', response); 
+    // console.log('API Response:', response); 
     return response.data[0]; // Return the first page that matches the slug
   } catch (error) {
     console.error('Error fetching page data:', error);
