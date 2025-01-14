@@ -9,7 +9,7 @@ const Page = () => {
   useEffect(() => {
     const getPageData = async () => {
       const data = await fetchPageData(slug);
-      console.log('Page data for slug:', slug, data); // Проверете данните в конзолата
+      // console.log('Page data for slug:', slug, data); // Проверете данните в конзолата
       setPage(data);
     };
     getPageData();
@@ -20,7 +20,12 @@ const Page = () => {
   }
 
   let TemplateComponent;
+  // console.log('Page template:', page.template);
+
   switch (page.template) {
+    case '':
+      TemplateComponent = React.lazy(() => import('../templates/HomeTemplate'));
+      break;
     case 'templates/homepage.php':
       TemplateComponent = React.lazy(() => import('../templates/HomeTemplate'));
       break;
@@ -36,7 +41,6 @@ const Page = () => {
 
   return (
     <div>
-      <h1>{page.title.rendered}</h1>
       <Suspense fallback={<div>Loading template...</div>}>
         <TemplateComponent />
       </Suspense>

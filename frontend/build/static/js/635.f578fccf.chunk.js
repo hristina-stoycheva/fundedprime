@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkfrontend=self.webpackChunkfrontend||[]).push([[635],{635:(e,t,s)=>{s.r(t),s.d(t,{default:()=>n});s(43);var h=s(579);const n=()=>(0,h.jsxs)("div",{children:[(0,h.jsx)("h2",{children:"Welcome to the About Template"}),(0,h.jsx)("p",{children:"This is the about page template."})]})}}]);
+//# sourceMappingURL=635.f578fccf.chunk.js.map

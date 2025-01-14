@@ -1,6 +1,4 @@
 {
-  "proxy": "/fundedprime/frontend",
-"name": "frontend",
   "version": "0.1.0",
   "private": true,
 "dependencies": {

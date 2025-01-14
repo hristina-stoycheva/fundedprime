@@ -1,15 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.e6c13ad2.css",
-    "main.js": "/static/js/main.bc7c8fd7.js",
-    "static/js/453.8ab44547.chunk.js": "/static/js/453.8ab44547.chunk.js",
-    "index.html": "/index.html",
-    "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
-    "main.bc7c8fd7.js.map": "/static/js/main.bc7c8fd7.js.map",
-    "453.8ab44547.chunk.js.map": "/static/js/453.8ab44547.chunk.js.map"
+    "main.css": "/fundedprime/frontend/static/css/main.670d42b6.css",
+    "main.js": "/fundedprime/frontend/static/js/main.847772eb.js",
+    "static/js/635.f578fccf.chunk.js": "/fundedprime/frontend/static/js/635.f578fccf.chunk.js",
+    "static/js/798.eecda7ed.chunk.js": "/fundedprime/frontend/static/js/798.eecda7ed.chunk.js",
+    "static/js/453.8ab44547.chunk.js": "/fundedprime/frontend/static/js/453.8ab44547.chunk.js",
+    "index.html": "/fundedprime/frontend/index.html",
+    "main.670d42b6.css.map": "/fundedprime/frontend/static/css/main.670d42b6.css.map",
+    "main.847772eb.js.map": "/fundedprime/frontend/static/js/main.847772eb.js.map",
+    "635.f578fccf.chunk.js.map": "/fundedprime/frontend/static/js/635.f578fccf.chunk.js.map",
+    "798.eecda7ed.chunk.js.map": "/fundedprime/frontend/static/js/798.eecda7ed.chunk.js.map",
+    "453.8ab44547.chunk.js.map": "/fundedprime/frontend/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.bc7c8fd7.js"
+    "static/css/main.670d42b6.css",
+    "static/js/main.847772eb.js"
   ]
 }

@@ -8,7 +8,7 @@ const Menu = () => {
     const fetchData = async () => {
       const fetchedMenu = await fetchMenu();
       setMenuItems(fetchedMenu);
-
+// console.log(fetchedMenu);
     };
     fetchData();
   }, []);
@@ -39,7 +39,7 @@ const Menu = () => {
 
       return (
         <li className="nav-item" key={item.id}>
-          <a className="nav-link" href={item.url}>
+          <a className="nav-link" href={item.slug}>
             {item.title}
           </a>
         </li>
