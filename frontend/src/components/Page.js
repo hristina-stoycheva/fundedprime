@@ -5,22 +5,22 @@ import { fetchPageData } from '../api'; // Функция за извличан�
 const Page = () => {
   const { slug } = useParams(); // Извличаме slug от URL параметрите
   const [page, setPage] = useState(null);
+  const currentSlug = slug || "home";
 
   useEffect(() => {
     const getPageData = async () => {
-      const data = await fetchPageData(slug);
+      const data = await fetchPageData(currentSlug);
       // console.log('Page data for slug:', slug, data); // Проверете данните в конзолата
       setPage(data);
     };
     getPageData();
-  }, [slug]); // Ще се изпълни всеки път, когато slug се промени
+  }, [currentSlug]); // Ще се изпълни всеки път, когато slug се промени
 
   if (!page) {
     return <div>Loading...</div>; // Показваме "Loading..." докато не заредим данните
   }
 
   let TemplateComponent;
-  // console.log('Page template:', page.template);
 
   switch (page.template) {
     case '':
