@@ -47,3 +47,15 @@
 .funded-black-btn:hover{
   color: #8261db;
 }
+
+.funded-purple-btn{
+  background-color: #8261DB;
+  border-color: #8261DB;
+  color: #fff;
+}
+
+.funded-purple-dark-btn{
+  background-color: #5137AF;
+  border-color: #5137AF;
+  color: #fff;
+}
