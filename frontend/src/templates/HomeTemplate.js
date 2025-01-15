@@ -60,7 +60,7 @@ const HomeTemplate = () => {
 </div>
       
     </div>
-    <div className="blocks" dangerouslySetInnerHTML={{ __html: content.rendered }} />
+    {/* <div className="blocks" dangerouslySetInnerHTML={{ __html: content.rendered }} /> */}
 
     </div>
   );
