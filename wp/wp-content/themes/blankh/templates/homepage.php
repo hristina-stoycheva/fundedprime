@@ -1,4 +1,4 @@
 <?php
 /*
-Template Name: Home Page Template
+Template Name: Homepage
 */

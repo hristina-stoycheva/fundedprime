@@ -1,37 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Menu from "./Menu";
-import "./styles/Header.css";
-import { fetchACFData } from "../api";
+import "./styles/style.css";
+import { useQuery } from "@apollo/client";
+import { GET_HEADER_SETTINGS } from "../apollo/queries";
 
 const Header = () => {
-  const [acfData, setAcfData] = useState({});
-  const [buttons, setButtons] = useState({});
-
-  // Fetch ACF data when the component mounts
-  useEffect(() => {
-    const getACFData = async () => {
-      const data = await fetchACFData(); // Fetch the ACF data
-      setAcfData(data.navigation); // Update the state with the fetched ACF data
-    };
-    getACFData(); // Call the function to fetch data
-    const getButtons = async () => {
-      const data = await fetchACFData(); // Fetch the ACF data
-      if (data?.navigation?.buttons) {
-        setButtons(data.navigation.buttons);
-      }
-    };
-    getButtons(); // Call the function to fetch data
-  }, []); // Empty dependency array means this effect runs only once when the component mounts
-  const buttonArray = Object.values(buttons);
-  // console.log(buttonArray);
+  const { loading, error, data } = useQuery(GET_HEADER_SETTINGS);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error loading navigation: {error.message}</p>;
+  const navigation = data.themeSettings.themeSettingsFields.navigation;
+  const buttons = data.themeSettings.themeSettingsFields.navigation.buttons;
+  // console.log(buttons);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container">
         <a className="navbar-brand col-2 header-logo" href="/">
-          {acfData.logo && acfData.logo.url && (
+          {navigation.logo && navigation.logo.node.sourceUrl && (
             <img
-              src={acfData.logo.url} // Use the image URL from ACF
+              src={navigation.logo.node.sourceUrl}
               alt="Brand Logo"
               className="d-inline-block align-top "
               style={{ height: "34px" }}

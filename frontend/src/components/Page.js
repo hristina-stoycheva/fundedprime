@@ -1,46 +1,48 @@
-import React, { useEffect, useState, Suspense } from 'react';
-import { useParams } from 'react-router-dom'; // За извличане на параметъра slug
-import { fetchPageData } from '../api'; // Функция за извличане на данни от WordPress API
+import React, { Suspense } from "react";
+import { useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { GET_PAGE_BY_SLUG } from "../apollo/queries";
 
 const Page = () => {
-  const { slug } = useParams(); // Извличаме slug от URL параметрите
-  const [page, setPage] = useState(null);
+  const { slug } = useParams();
   const currentSlug = slug || "home";
 
-  useEffect(() => {
-    const getPageData = async () => {
-      const data = await fetchPageData(currentSlug);
-      // console.log('Page data for slug:', slug, data); // Проверете данните в конзолата
-      setPage(data);
-    };
-    getPageData();
-  }, [currentSlug]); // Ще се изпълни всеки път, когато slug се промени
+  const { loading, error, data } = useQuery(GET_PAGE_BY_SLUG, {
+    variables: { slug: currentSlug },
+  });
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error loading page: {error.message}</div>;
+console.log(data);
+  const page = data.pageBy;
 
   if (!page) {
-    return <div>Loading...</div>; // Показваме "Loading..." докато не заредим данните
+    return <div>Page not found</div>;
   }
 
   let TemplateComponent;
 
-  switch (page.template) {
-    case '':
-      TemplateComponent = React.lazy(() => import('../templates/HomeTemplate'));
+  // Determine which template to use
+  switch (page.template?.templateName) {
+    case "Homepage":
+      TemplateComponent = React.lazy(() => import("../templates/HomeTemplate"));
       break;
-    case 'templates/homepage.php':
-      TemplateComponent = React.lazy(() => import('../templates/HomeTemplate'));
+    case "About":
+      TemplateComponent = React.lazy(() => import("../templates/AboutTemplate"));
       break;
-    case 'templates/about-template.php':
-      TemplateComponent = React.lazy(() => import('../templates/AboutTemplate'));
+    case "Contact":
+      TemplateComponent = React.lazy(() => import("../templates/ContactTemplate"));
       break;
-    case 'templates/contact-template.php':
-      TemplateComponent = React.lazy(() => import('../templates/ContactTemplate'));
-      break;
+      case "Default":
+        TemplateComponent = React.lazy(() => import("../templates/DefaultTemplate"));
+        break;
     default:
-      TemplateComponent = () => <div>{page.content.rendered}</div>;
+      TemplateComponent = () => <div dangerouslySetInnerHTML={{ __html: page.content }} />;
   }
 
   return (
     <div>
+      <h1>{page.title}</h1>
       <Suspense fallback={<div>Loading template...</div>}>
         <TemplateComponent />
       </Suspense>

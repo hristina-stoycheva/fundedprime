@@ -3,8 +3,8 @@ import React from 'react';
 const ContactTemplate = () => {
   return (
     <div>
-      <h2>Welcome to the About Template</h2>
-      <p>This is the about page template.</p>
+      <h2>Welcome to the Contact Template</h2>
+      <p>This is the contact page template.</p>
     </div>
   );
 };
