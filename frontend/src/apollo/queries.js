@@ -77,3 +77,48 @@ export const GET_PAGE_DATA = gql`
     }
   }
 `;
+
+export const GET_SECTION = gql `
+query getSections($slug: String!) {
+  pageBy(uri: $slug) {
+    sections {
+      section {
+        selectSection
+        textAndImageInColumns {
+          backgroundColor
+          buttons {
+            text
+            url
+          }
+          imagePosition
+          text
+          title
+           image {
+            node {
+              mediaItemUrl
+            }
+          }
+        }
+        videoHeader {
+          buttons {
+            text
+            url
+          }
+          imageBeforeTitle {
+            node {
+              mediaItemUrl
+            }
+          }
+          text
+          title
+          video {
+            node {
+              mediaItemUrl
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;

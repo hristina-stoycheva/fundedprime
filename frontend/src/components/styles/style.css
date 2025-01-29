@@ -59,4 +59,13 @@
     border-color: #5137AF;
     color: #fff;
   }
-  
+  .vh_img_top{
+    height: 25px;;
+  }
+  .bgc-dark{
+    background-color: #111111;
+    border-radius: 30px;
+  }
+  .bgc-dark *{
+    color: #fff;
+  }

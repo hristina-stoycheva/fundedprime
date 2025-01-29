@@ -5,7 +5,6 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js"; // for dropdowns and other J
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Posts from "./components/Posts";
-import NewPosts from "./components/NewPosts";
 import Page from './components/Page'; // Import the Page component
 import HomePage from './templates/HomeTemplate';  // Import the HomePage component
 import { ApolloProvider } from '@apollo/client';
@@ -22,7 +21,7 @@ const App = () => {
       <Route path="/" element={<HomePage/>} />
       <Route path="/:slug" element={<Page />} /> {/* Dynamic route for pages */}
       </Routes>
-      <NewPosts/>
+      {/* <Posts/> */}
       <Footer/>
     </Router>
     </ApolloProvider>

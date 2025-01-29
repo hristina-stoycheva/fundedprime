@@ -13,7 +13,7 @@ const Page = () => {
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error loading page: {error.message}</div>;
-console.log(data);
+// console.log(data);
   const page = data.pageBy;
 
   if (!page) {
