@@ -78,47 +78,70 @@ export const GET_PAGE_DATA = gql`
   }
 `;
 
-export const GET_SECTION = gql `
-query getSections($slug: String!) {
-  pageBy(uri: $slug) {
-    sections {
-      section {
-        selectSection
-        textAndImageInColumns {
-          backgroundColor
-          buttons {
+export const GET_SECTION = gql`
+  query getSections($slug: String!) {
+    pageBy(uri: $slug) {
+      sections {
+        section {
+          selectSection
+          textAndImageInColumns {
+            backgroundColor
+            buttons {
+              text
+              url
+            }
+            imagePosition
             text
-            url
-          }
-          imagePosition
-          text
-          title
-           image {
-            node {
-              mediaItemUrl
+            title
+            image {
+              node {
+                mediaItemUrl
+              }
             }
           }
-        }
-        videoHeader {
-          buttons {
+          videoHeader {
+            buttons {
+              text
+              url
+            }
+            imageBeforeTitle {
+              node {
+                mediaItemUrl
+              }
+            }
             text
-            url
-          }
-          imageBeforeTitle {
-            node {
-              mediaItemUrl
+            title
+            video {
+              node {
+                mediaItemUrl
+              }
             }
           }
-          text
-          title
-          video {
-            node {
-              mediaItemUrl
+          doubleCardSection {
+            title
+            text
+            card {
+              backgroundColor
+              buttonText
+              buttonUrl
+              title
+              text
+              imageInTop {
+                node {
+                  mediaItemUrl
+                }
+              }
+              logos {
+                logo {
+                  node {
+                    mediaItemUrl
+                  }
+                }
+              }
             }
           }
         }
       }
     }
   }
-}
 `;

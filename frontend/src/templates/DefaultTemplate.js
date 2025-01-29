@@ -32,6 +32,7 @@ const DefaultTemplate = () => {
 
         // Switch based on the first value of `section.selectSection`
         const selectedValue = section.selectSection?.[0];
+        // console.log(selectedValue);
         switch (selectedValue) {
           case "video_header":
             const videoHeaderData = section.videoHeader;
@@ -60,6 +61,10 @@ const DefaultTemplate = () => {
               />
             );
             break;
+            case "double_card_section":
+              const cardContent = section.doubleCardSection;
+              console.log(cardContent);
+              break;
         }
 
         return (
