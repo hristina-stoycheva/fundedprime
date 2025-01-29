@@ -69,3 +69,25 @@
   .bgc-dark *{
     color: #fff;
   }
+  .singleCard{
+    position: relative;
+    padding: 3rem;
+    max-width: 450px;
+    border-radius: 10px;
+  }
+  .cardAbsImg{
+    position:absolute;
+    top: -20px;
+    right: -15px;
+    max-height: 100px;
+  }
+  .cardSingleLogo{
+    max-height: 80px;
+  }
+  .cardsTitle{
+    word-spacing: 100vw;
+  }
+  .cardButton{
+    text-decoration: none;
+    color: #8261db;
+  }
