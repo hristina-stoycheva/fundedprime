@@ -18,7 +18,7 @@ const CardsSection = ({ title, text, cards }) => {
             <div
               key={key}
               className={`singleCardtriple col-12 ${
-                cards.length > 2 ? "col-md-3 col-lg-3" : "col-md-4 col-lg-4"
+                cards.length > 2 ? "col-md-3 col-lg-3" : "col-md-4 col-lg-4 minh500"
               } mb-4`}
               style={{
                 ...(card?.backgroundImage?.node?.mediaItemUrl && {
@@ -42,10 +42,10 @@ const CardsSection = ({ title, text, cards }) => {
                 />
               )}
               {card?.title && (
-                <h3 className="cardsTitleTrip pb-4">{card.title}</h3>
+                <h3 className="cardsTitleTrip pb-4"dangerouslySetInnerHTML={{ __html: card.title }} />
               )}
-              {card?.text && <p className="cardText">{card.text}</p>}
-              {card.logos?.length > 0 && (
+              {card?.text && <div className="cardText" dangerouslySetInnerHTML={{ __html: card.text }} />}
+          {card.logos?.length > 0 && (
                 <div className="row mt-4 mb-4">
                   {Object.entries(card?.logos).map(([key, singlelogo]) => (
                     <div key={key} className="singleImglogo col-auto">
