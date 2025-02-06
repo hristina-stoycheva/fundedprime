@@ -1,93 +1,128 @@
 /* Style for dropdown on hover */
 .nav-item:hover .dropdown-menu {
-    display: block;
-    opacity: 1;
-    transition: opacity 0.3s ease; /* Optional: Add fade effect */
-  }
-  
-  /* Hide dropdown by default */
-  .nav-item .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-  }
-  .funded-btn{
-    font-size: 15px;
-    font-weight: 700;
-    border: 0.8px solid;
-    border-radius: 35px;
-    padding: 13px 25px;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-    display: inline-block;
-    line-height: 1;
-    line-height: 1;
-  
-  }
-  .funded-btn:hover{
-    transform: scale(1.1);
-  
-  }
-  .funded-white-btn{
-    color: #111111;
-    border-color: #111111;
-  }
-  .funded-white-btn:hover{
-    color: #8261db;
-  }
-  
-  .funded-black-btn{
-    background-color: #111111;
-    border-color: #111111;
-    color: #fff;
-  }
-  .funded-black-btn:hover{
-    color: #8261db;
-  }
-  
-  .funded-purple-btn{
-    background-color: #8261DB;
-    border-color: #8261DB;
-    color: #fff;
-  }
-  
-  .funded-purple-dark-btn{
-    background-color: #5137AF;
-    border-color: #5137AF;
-    color: #fff;
-  }
-  .vh_img_top{
-    height: 25px;;
-  }
-  .bgc-dark{
-    background-color: #111111;
-    border-radius: 30px;
-  }
-  .bgc-dark *{
-    color: #fff;
-  }
-  .singleCard{
-    position: relative;
-    padding: 3rem;
-    max-width: 450px;
-    border-radius: 10px;
-  }
-  .cardAbsImg{
-    position:absolute;
-    top: -20px;
-    right: -15px;
-    max-height: 100px;
-  }
-  .cardSingleLogo{
-    max-height: 80px;
-  }
-  .cardsTitle{
-    word-spacing: 100vw;
-  }
-  .cardButton{
-    text-decoration: none;
-    color: #8261db;
-  }
+  display: block;
+  opacity: 1;
+  transition: opacity 0.3s ease; /* Optional: Add fade effect */
+}
+
+/* Hide dropdown by default */
+.nav-item .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+}
+.funded-btn {
+  font-size: 15px;
+  font-weight: 700;
+  border: 0.8px solid;
+  border-radius: 35px;
+  padding: 13px 25px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  line-height: 1;
+}
+.funded-btn:hover {
+  transform: scale(1.1);
+}
+.funded-white-btn {
+  color: #111111;
+  border-color: #111111;
+}
+.funded-white-btn:hover {
+  color: #8261db;
+}
+
+.funded-black-btn {
+  background-color: #111111;
+  border-color: #111111;
+  color: #fff;
+}
+.funded-black-btn:hover {
+  color: #8261db;
+}
+
+.funded-purple-btn {
+  background-color: #8261db;
+  border-color: #8261db;
+  color: #fff;
+}
+
+.funded-purple-dark-btn {
+  background-color: #5137af;
+  border-color: #5137af;
+  color: #fff;
+}
+.vh_img_top {
+  height: 25px;
+}
+.bgc-dark {
+  background-color: #111111;
+  border-radius: 30px;
+}
+.bgc-dark * {
+  color: #fff;
+}
+.singleCard {
+  position: relative;
+  padding: 3rem;
+  max-width: 450px;
+  border-radius: 10px;
+}
+.cardAbsImg {
+  position: absolute;
+  top: -20px;
+  right: -15px;
+  max-height: 100px;
+}
+.cardSingleLogo {
+  max-height: 80px;
+}
+.cardsTitle {
+    max-width: 60%;
+}
+.cardButton {
+  text-decoration: none;
+  color: #8261db;
+}
+.singleCardtriple {
+  border-radius: 10px;
+  padding: 2rem;
+  background-position: bottom right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  height: 100%; 
+  min-height: 380px;
+  position: relative; 
+}
+.cardsrowtrip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.cardsTitleTrip,
+.cardText,
+.cardButton {
+  margin: 0;
+}
+.cardButton {
+  margin-top: auto;
+}
+.cardText {
+  margin-bottom: 1rem;
+}
+.cardsTitleTrip {
+  max-width: 60%;
+}
+.imgBeforeTitle{
+    height: 150px;
+    margin-bottom: 2rem;
+    object-fit: contain;
+}

@@ -5,8 +5,7 @@ import { useQuery } from "@apollo/client";
 import { GET_SECTION } from "../apollo/queries";
 import VideoHeader from "../components/template-parts/VideoHeader";
 import TextLeftImageRight from "../components/template-parts/TextLeftImageRight";
-import DoubleCardSection from "../components/template-parts/DoubleCardSection";
-
+import CardsSection from "../components/template-parts/CardsSection";
 const DefaultTemplate = () => {
   const { slug } = useParams();
   const currentSlug = slug || "404";
@@ -52,7 +51,6 @@ const DefaultTemplate = () => {
             case "text_img_columns":
               const textAndImageInColumns = section.textAndImageInColumns;
               // console.log(textAndImageInColumns);
-
               content = (
                 <TextLeftImageRight
                   title={textAndImageInColumns?.title || ""}
@@ -66,17 +64,17 @@ const DefaultTemplate = () => {
                 />
               );
               break;
-            case "double_card_section":
-              const cardContent = section.doubleCardSection;
-              console.log(cardContent);
-              content = (
-                <DoubleCardSection
-                  title={cardContent?.title || ""}
-                  text={cardContent?.text || ""}
-                  cards={cardContent?.card || []}
-                />
-              );
-              break;
+              case "cards":
+                const CardsContent = section.cards;
+                // console.log(CardsContent);
+              content=(
+                  <CardsSection
+                  title={CardsContent?.title || ""}
+                  text={CardsContent?.text || ""}
+                  cards={CardsContent?.card || ""}
+                  />
+                );
+                break;
           }
 
           return (

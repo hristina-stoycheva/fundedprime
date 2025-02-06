@@ -117,13 +117,10 @@ export const GET_SECTION = gql`
               }
             }
           }
-          doubleCardSection {
-            title
+          cards {
             text
+            title
             card {
-              backgroundColor
-              buttonText
-              buttonUrl
               title
               text
               imageInTop {
@@ -136,6 +133,19 @@ export const GET_SECTION = gql`
                   node {
                     mediaItemUrl
                   }
+                }
+              }
+              buttonUrl
+              buttonText
+              backgroundImage {
+                node {
+                  mediaItemUrl
+                }
+              }
+              backgroundColor
+              imageBeforeTitle {
+                node {
+                  mediaItemUrl
                 }
               }
             }
