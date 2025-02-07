@@ -6,7 +6,6 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Posts from "./components/Posts";
 import Page from './components/Page'; // Import the Page component
-import HomePage from './templates/HomeTemplate';  // Import the HomePage component
 import { ApolloProvider } from '@apollo/client';
 import client from './apollo/client';
 
@@ -18,7 +17,7 @@ const App = () => {
   <Router>
       <Header />
       <Routes>
-      <Route path="/" element={<HomePage/>} />
+      <Route path="/" element={<Page/>} />
       <Route path="/:slug" element={<Page />} /> {/* Dynamic route for pages */}
       </Routes>
       {/* <Posts/> */}

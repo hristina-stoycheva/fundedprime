@@ -8,9 +8,8 @@ const CardsSection = ({ title, text, cards }) => {
         </div>
       )}
       {text && (
-        <div className="row">
-          <p className="text-center">{text}</p>
-        </div>
+                <div className="row text-center" dangerouslySetInnerHTML={{ __html: text }} />
+
       )}
       <div className="row justify-content-center cardsrowtrip gap-4 pt-5">
         {cards?.length > 0 &&
@@ -42,7 +41,7 @@ const CardsSection = ({ title, text, cards }) => {
                 />
               )}
               {card?.title && (
-                <h3 className="cardsTitleTrip pb-4"dangerouslySetInnerHTML={{ __html: card.title }} />
+                <h3 className="cardsTitleTrip pb-4" dangerouslySetInnerHTML={{ __html: card.title }} />
               )}
               {card?.text && <div className="cardText" dangerouslySetInnerHTML={{ __html: card.text }} />}
           {card.logos?.length > 0 && (
