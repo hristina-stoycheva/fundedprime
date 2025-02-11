@@ -1,4 +1,6 @@
 import React from "react";
+import "../styles/VideoHeader.css";
+
 const VideoHeader = ({ videourl, text, buttonsa, title, imageintop }) => (
   <div className="topvideosection section">
     <div className="overlay"></div>

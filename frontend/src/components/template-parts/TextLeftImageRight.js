@@ -11,7 +11,7 @@ const TextLeftImageRight = ({ title, text, imageUrl, imgPosition, bgColor, butto
   const imageColumnClass = isLeftAligned ? "imagecolumn col-5 order-0 d-flex align-items-center justify-content-center" : "imagecolumn col-5 d-flex align-items-center justify-content-center";
 
   return (
-    <div className="container">
+    <div className="container pt-5 pb-5">
       <div className={rowClass}>
         <div className={textColumnClass}>
           {title && <h2>{title}</h2>}

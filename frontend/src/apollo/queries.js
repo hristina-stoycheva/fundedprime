@@ -157,57 +157,15 @@ export const GET_SECTION = gql`
 `;
 
 export const GET_PAGE_FIELDS = gql`
-query GetPageContent($slug: String!)  {
-  pageBy(uri: $slug) {
-    content {
-      contentSection {
-        ... on ContentContentSectionHeaderVideoLayout {
-          fieldGroupName
-          text
-          title
-          buttons {
+  query GetPageContent($slug: String!) {
+    pageBy(uri: $slug) {
+      content {
+        contentSection {
+          ... on ContentContentSectionHeaderVideoLayout {
+            fieldGroupName
             text
-            url
-          }
-          imageBeforeTitle {
-            node {
-              mediaItemUrl
-            }
-          }
-          video {
-            node {
-              mediaItemUrl
-            }
-          }
-        }
-        ... on ContentContentSectionTextAndImageInColumnsLayout {
-          fieldGroupName
-          text
-          backgroundColor
-          buttons {
-            text
-            url
-          }
-          image {
-            node {
-              mediaItemUrl
-            }
-          }
-          imagePosition
-          title
-        }
-        ... on ContentContentSectionCardsLayout {
-        fieldGroupName
-          text
-          title
-          card {
-            backgroundColor
-            backgroundImage {
-              node {
-                mediaItemUrl
-              }
-            }
-            button {
+            title
+            buttons {
               text
               url
             }
@@ -216,22 +174,96 @@ query GetPageContent($slug: String!)  {
                 mediaItemUrl
               }
             }
-            imageInTop {
+            video {
               node {
-                mediaItemId
-              }
-            }
-            logos {
-              nodes {
                 mediaItemUrl
               }
             }
-            title
-            text
           }
+          ... on ContentContentSectionTextAndImageInColumnsLayout {
+            fieldGroupName
+            text
+            backgroundColor
+            buttons {
+              text
+              url
+            }
+            image {
+              node {
+                mediaItemUrl
+              }
+            }
+            imagePosition
+            title
+          }
+          ... on ContentContentSectionCardsLayout {
+            fieldGroupName
+            text
+            title
+            card {
+              backgroundColor
+              backgroundImage {
+                node {
+                  mediaItemUrl
+                }
+              }
+              button {
+                text
+                url
+              }
+              imageBeforeTitle {
+                node {
+                  mediaItemUrl
+                }
+              }
+              imageInTop {
+                node {
+                  mediaItemUrl
+                }
+              }
+              logos {
+                logo {
+                  node {
+                    mediaItemUrl
+                  }
+                }
+              }
+              title
+              text
+            }
+          }
+            
+        fieldGroupName
+        ... on ContentContentSectionTabsSectionLayout {
+          fieldGroupName
+          text
+          title
+          generalTab {
+            generalTabTitle
+            cardsInfoColumn {
+              row
+              fieldGroupName
+            }
+            internalTab {
+              title
+              button {
+                text
+                url
+              }
+              fieldGroupName
+              tabCard {
+                row {
+                  text
+                }
+                title
+              }
+            }
+          }
+        }
+      
+    
         }
       }
     }
   }
-}
 `;

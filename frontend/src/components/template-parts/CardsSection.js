@@ -1,5 +1,8 @@
 import React from "react";
+import "../styles/Cards.css";
+
 const CardsSection = ({ title, text, cards }) => {
+  // console.log(cards);
   return (
     <div className="container pt-5 pb-5">
       {title && (
@@ -13,8 +16,8 @@ const CardsSection = ({ title, text, cards }) => {
       )}
       <div className="row justify-content-center cardsrowtrip gap-4 pt-5">
         {cards?.length > 0 &&
-          Object.entries(cards).map(([key, card]) => (
-            <div
+Object.entries(cards).map(([key, card]) => (
+<div
               key={key}
               className={`singleCardtriple col-12 ${
                 cards.length > 2 ? "col-md-3 col-lg-3" : "col-md-4 col-lg-4 minh500"
@@ -28,7 +31,9 @@ const CardsSection = ({ title, text, cards }) => {
                 }),
               }}
             >
+              
               {card?.imageInTop?.node?.mediaItemUrl && (
+
                 <img
                   className="cardAbsImg"
                   src={card.imageInTop.node.mediaItemUrl}
@@ -60,9 +65,9 @@ const CardsSection = ({ title, text, cards }) => {
                 </div>
               )}
 
-              {card?.buttonText && card?.buttonUrl && (
-                <a href={card.buttonUrl} className="cardButton">
-                  {card.buttonText} &rarr;
+              {card?.button?.text && card?.button?.url && (
+                <a href={card.button.url} className="cardButton">
+                  {card.button.text} &rarr;
                 </a>
               )}
             </div>

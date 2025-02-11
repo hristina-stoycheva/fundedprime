@@ -5,6 +5,7 @@ import { useQuery } from "@apollo/client";
 import VideoHeader from "../components/template-parts/VideoHeader";
 import TextLeftImageRight from "../components/template-parts/TextLeftImageRight";
 import CardsSection from "../components/template-parts/CardsSection";
+import Tabs from "./template-parts/TabsSection";
 import "./styles/style.css";
 
 
@@ -27,7 +28,7 @@ const Page = () => {
         content.contentSection.map((section, index) => {
           let TemplateComponent = null;
           const selectedValue = section?.fieldGroupName; // Fixed declaration
-          console.log(selectedValue);
+          // console.log(selectedValue);
           // Determine which template to use
           switch (selectedValue) {
             case "ContentContentSectionHeaderVideoLayout":
@@ -43,16 +44,21 @@ const Page = () => {
               break;
 
             case "ContentContentSectionTextAndImageInColumnsLayout":
+              // console.log(section.image.node.mediaItemUrl);
               TemplateComponent = (
                 <TextLeftImageRight
                   title={section?.title || ""}
                   text={section?.text || ""}
-                  image={section?.image?.node?.mediaItemUrl || ""}
+                  imageUrl={section?.image?.node?.mediaItemUrl || ""}
+                  imgPosition={section?.imagePosition || ""}
+                  bgColor={section?.backgroundColor || ""}
+                  buttonsa={section?.buttons || []}
                 />
               );
               break;
 
             case "ContentContentSectionCardsLayout":
+              // console.log(section.card);
               TemplateComponent = (
                 <CardsSection
                   title={section?.title || ""}
@@ -61,6 +67,16 @@ const Page = () => {
                   />
               );
               break;
+              case "ContentContentSectionTabsSectionLayout":
+                 console.log(section.title);
+                TemplateComponent = (
+                  <Tabs
+                    title={section?.title || ""}
+                    text={section?.text || ""}
+                    tabs={section?.generalTab || ""}
+                    />
+                );
+                break;
           }
 
           return (
