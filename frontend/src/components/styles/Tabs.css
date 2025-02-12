@@ -1,0 +1,29 @@
+.tabsinglecard {
+    width: 100%;
+    border: none;
+  }
+  
+  .cardsList {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .cardsList li {
+    text-align: center;
+    padding: 1rem 0;
+  }
+  
+  /* Ensure infocard has distinct styling */
+  .infocard *{
+   text-align: right !important;
+   align-items:end !important;
+   font-weight: 600;
+  }
+  .nav-item {
+    flex-grow: 1;
+  }
+  
+  .nav-link {
+    text-align: center;
+  }
+  

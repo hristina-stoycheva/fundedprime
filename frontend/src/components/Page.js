@@ -68,12 +68,13 @@ const Page = () => {
               );
               break;
               case "ContentContentSectionTabsSectionLayout":
-                 console.log(section.title);
+                //  console.log(index);
                 TemplateComponent = (
                   <Tabs
                     title={section?.title || ""}
                     text={section?.text || ""}
                     tabs={section?.generalTab || ""}
+                    sectioncounter={"tabs"+index}
                     />
                 );
                 break;

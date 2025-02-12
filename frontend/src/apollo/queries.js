@@ -240,10 +240,6 @@ export const GET_PAGE_FIELDS = gql`
           title
           generalTab {
             generalTabTitle
-            cardsInfoColumn {
-              row
-              fieldGroupName
-            }
             internalTab {
               title
               button {
@@ -256,6 +252,9 @@ export const GET_PAGE_FIELDS = gql`
                   text
                 }
                 title
+                backgroundColor
+                infoCard
+                textColor
               }
             }
           }
