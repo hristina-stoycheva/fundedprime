@@ -3,7 +3,7 @@ import "../styles/Tabs.css";
 
 const Tabs = ({ title, text, tabs, sectioncounter }) => {
   return (
-    <div className="container pt-5 pb-5">
+    <div className="container pt-5 pb-5 tabscontainer">
       {title && <h2 className="text-center">{title}</h2>}
       {text && (
         <div
@@ -41,7 +41,7 @@ const Tabs = ({ title, text, tabs, sectioncounter }) => {
             {/* Internal Tabs */}
             {tab?.internalTab && tab.internalTab.length > 0 && (
               <>
-                <ul className="nav nav-pills mb-3 d-flex w-100" role="tablist">
+                <ul className="nav inttablist nav-pills mb-3 d-flex w-100" role="tablist">
                   {tab.internalTab.map((intTab, intIndex) => (
                     <li className="nav-item flex-fill text-center" role="presentation" key={intIndex}>
                       <button
@@ -95,7 +95,6 @@ const Tabs = ({ title, text, tabs, sectioncounter }) => {
                           </div>
                         ))}
                       </div>
-
                       <div className="text-center mt-3">
                         <a href={intTab.button.url} className="btn btn-primary">
                           {intTab.button.text}

@@ -26,4 +26,16 @@
   .nav-link {
     text-align: center;
   }
-  
+ 
+  .nav-pills .nav-link, .generalTabList , .inttablist{
+    background-color: #f1f1f1;
+    border-radius: 30px;
+
+  }
+  .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    background-color: #8261db;
+  }  
+  .tabscontainer .nav-link{
+    padding: 1rem 0;
+    border-radius: 30px;
+  }
