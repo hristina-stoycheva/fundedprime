@@ -95,8 +95,8 @@ const Tabs = ({ title, text, tabs, sectioncounter }) => {
                           </div>
                         ))}
                       </div>
-                      <div className="text-center mt-3">
-                        <a href={intTab.button.url} className="btn btn-primary">
+                      <div className="text-end mt-3">
+                        <a href={intTab.button.url} className="btn btn-primary tabsbtn">
                           {intTab.button.text}
                         </a>
                       </div>

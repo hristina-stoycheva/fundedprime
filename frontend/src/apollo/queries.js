@@ -183,7 +183,7 @@ export const GET_PAGE_FIELDS = gql`
           ... on ContentContentSectionTextAndImageInColumnsLayout {
             fieldGroupName
             text
-            backgroundColor
+            colorTheme
             buttons {
               text
               url
@@ -231,9 +231,9 @@ export const GET_PAGE_FIELDS = gql`
               title
               text
             }
+
           }
-            
-        fieldGroupName
+           
         ... on ContentContentSectionTabsSectionLayout {
           fieldGroupName
           text
@@ -258,10 +258,24 @@ export const GET_PAGE_FIELDS = gql`
               }
             }
           }
-        }
+        } 
       
-    
+        ... on ContentContentSectionTitleAndImageLayout {
+          fieldGroupName
+           backgroundColor
+          title
+          button {
+            text
+            url
+          }
+          image {
+            node {
+              mediaItemUrl
+            }
+          }
         }
+    
+        } 
       }
     }
   }

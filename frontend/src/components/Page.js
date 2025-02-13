@@ -6,6 +6,7 @@ import VideoHeader from "../components/template-parts/VideoHeader";
 import TextLeftImageRight from "../components/template-parts/TextLeftImageRight";
 import CardsSection from "../components/template-parts/CardsSection";
 import Tabs from "./template-parts/TabsSection";
+import TitleImage from "./template-parts/TitleImage";
 import "./styles/style.css";
 
 
@@ -51,7 +52,7 @@ const Page = () => {
                   text={section?.text || ""}
                   imageUrl={section?.image?.node?.mediaItemUrl || ""}
                   imgPosition={section?.imagePosition || ""}
-                  bgColor={section?.backgroundColor || ""}
+                  bgColor={section?.colorTheme || ""}
                   buttonsa={section?.buttons || []}
                 />
               );
@@ -78,6 +79,18 @@ const Page = () => {
                     />
                 );
                 break;
+                case "ContentContentSectionTitleAndImageLayout":
+                  console.log(section);
+                  TemplateComponent = (
+                    <TitleImage
+                  title={section?.title || ""}
+                  button={section?.button || ""}
+                  image={section?.image || ""}
+                  bgcolor={section?.backgroundColor || ""}
+
+                  />
+                  );
+                  break;
           }
 
           return (
