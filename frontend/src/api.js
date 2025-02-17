@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const WP_API_URL = "http://localhost/fundedprime/wp/wp-json/wp/v2";
-const ACF_API_URL = "http://localhost/fundedprime/wp/wp-json/acf/v2/options";
-const WP_MENU_API_URL ="http://localhost/fundedprime/wp/wp-json/menus/v1/menus/header_menu";
-const FOOTER_MENU_API_URL ="http://localhost/fundedprime/wp/wp-json/menus/v1/menus/footer_menu";
+const WP_API_URL = "https://woocommerce-1293743-5267124.cloudwaysapps.com/wp-json/wp/v2";
+const ACF_API_URL = "https://woocommerce-1293743-5267124.cloudwaysapps.com/wp-json/acf/v2/options";
+const WP_MENU_API_URL ="https://woocommerce-1293743-5267124.cloudwaysapps.com/wp-json/menus/v1/menus/header_menu";
+const FOOTER_MENU_API_URL ="https://woocommerce-1293743-5267124.cloudwaysapps.com/wp-json/menus/v1/menus/footer_menu";
 
 // Posts
 export const fetchPosts = async () => {

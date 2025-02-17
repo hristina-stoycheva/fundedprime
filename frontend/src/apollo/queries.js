@@ -1,4 +1,5 @@
 import { gql } from "@apollo/client";
+import Footer from "../components/Footer";
 
 export const GET_POSTS = gql`
   query GetPosts {
@@ -280,3 +281,19 @@ export const GET_PAGE_FIELDS = gql`
     }
   }
 `;
+export const FOOTER_SETTINGS=gql`
+query MyQuery2 {
+  themeSettings {
+    themeSettingsFields {
+      footer {
+        footerBottomText
+        footerEmail
+        logo {
+          node {
+            mediaItemUrl
+          }
+        }
+      }
+    }
+  }
+}`;

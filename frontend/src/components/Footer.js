@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { useQuery } from "@apollo/client";
 import Menu from "./Menu";
 import FooterMenu from "./FooterMenu";
 import "./styles/Footer.css";
-import { fetchACFData } from "../api";
+import { FOOTER_SETTINGS } from "../apollo/queries";
+
 const Footer = () => {
-  const [acfData, setAcfData] = useState({});
-  // Fetch ACF data when the component mounts
-  useEffect(() => {
-    const getACFData = async () => {
-      const data = await fetchACFData(); // Fetch the ACF data
-      setAcfData(data.footer); // Update the state with the fetched ACF data
-    };
-    getACFData(); // Call the function to fetch data
-  }, []);
+  const { loading, error, data } = useQuery(FOOTER_SETTINGS);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error loading footer data.</p>;
+  const footerData = data.themeSettings.themeSettingsFields.footer;
+  console.log(footerData);
   return (
     <div className="section_footer pb-5 pt-3">
       <div className="footer container">
@@ -21,25 +19,28 @@ const Footer = () => {
             <Menu />
           </div>
           <div className="col-4 footer_top_right text-end">
-            {acfData.logo && acfData.logo.url && (
+            {footerData.logo && footerData.logo.node.mediaItemUrl && (
               <img
-                src={acfData.logo.url} // Use the image URL from ACF
+                src={footerData.logo.node.mediaItemUrl}
                 alt="Brand Logo"
                 className="d-inline-block align-top "
                 style={{ height: "25px" }}
               />
             )}
-            <div className="footer_top_text">{acfData.footer_email}</div>
+            <div className="footer_top_text">{footerData.footerEmail}</div>
           </div>
         </div>
         <div className="footer_bottom_line pt-5 row">
           <div className="footer_bottom_menu ps-0">
             <FooterMenu />
           </div>
-          <div className="footer_bottom_text ps-0">{acfData.footer_bottom_text}</div>
+          <div className="footer_bottom_text ps-0">
+            {footerData.footerBottomText}
+          </div>
         </div>
       </div>
     </div>
   );
 };
+
 export default Footer;
